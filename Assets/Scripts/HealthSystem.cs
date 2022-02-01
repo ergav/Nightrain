@@ -29,6 +29,8 @@ public class HealthSystem : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            currentHealth = 0;
+            tmpText.text = "0";
             Death();
             return;
         }
@@ -43,7 +45,7 @@ public class HealthSystem : MonoBehaviour
     public void Death()
     {
         Debug.Log("player is dead");
-        throw new NotImplementedException();
+        // throw new NotImplementedException();
     }
 
     public void RestoreHealth(float healingPoints)
