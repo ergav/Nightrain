@@ -25,11 +25,7 @@ public class WinAndLose : MonoBehaviour
         _HUD_CanvasGroup.interactable = false;
         _HUD_CanvasGroup.blocksRaycasts = false;
 
-
         Time.timeScale = 0;
-        //UI appears
-
-
     }
 
     public void GameWon()
