@@ -45,7 +45,7 @@ public class HealthSystem : MonoBehaviour
     public void Death()
     {
         Debug.Log("player is dead");
-        // throw new NotImplementedException();
+        // reference to Win&Lose System script.Lose();
     }
 
     public void RestoreHealth(float healingPoints)
