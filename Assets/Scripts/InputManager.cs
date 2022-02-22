@@ -6,16 +6,30 @@ public class InputManager : MonoBehaviour
 {
     private PlayerControls playerControls;
 
-    // Start is called before the first frame update
-    void Awake()
+    static InputManager _instance;
+
+    public static InputManager Instance
     {
-        playerControls = new PlayerControls();
+        get
+        {
+            return _instance;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void Awake()
     {
-        
+        if (_instance != null && _instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+
+        playerControls = new PlayerControls();
+
+        Cursor.visible = false;
     }
 
     private void OnEnable()
