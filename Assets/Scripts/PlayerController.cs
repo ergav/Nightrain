@@ -16,6 +16,11 @@ public class PlayerController : MonoBehaviour
 
     Transform cameraTransform;
 
+    [SerializeField] Transform directionPointer;
+
+    Vector3 pointDir;
+
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -50,5 +55,7 @@ public class PlayerController : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+
     }
 }
