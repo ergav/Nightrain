@@ -11,10 +11,17 @@ public class HealthSystem : MonoBehaviour
     public float currentHealth;
     public float damage;
     public float healingPoints;
-    private float maxHealth = 100f;
 
     [SerializeField] private TextMeshProUGUI tmpText;
 
+    private float maxHealth = 100f;
+
+    private WinAndLose winAndLose;
+
+    void Awake()
+    {
+        winAndLose = FindObjectOfType<WinAndLose>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +37,7 @@ public class HealthSystem : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            tmpText.text = "0";
-            Death();
+            winAndLose.GameLost();
             return;
         }
         else if(currentHealth >= maxHealth)
@@ -42,11 +48,6 @@ public class HealthSystem : MonoBehaviour
         slider.value = currentHealth;
     }
 
-    public void Death()
-    {
-        Debug.Log("player is dead");
-        // reference to Win&Lose System script.Lose();
-    }
 
     public void RestoreHealth(float healingPoints)
     {
