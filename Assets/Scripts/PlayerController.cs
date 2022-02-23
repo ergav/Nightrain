@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     Transform cameraTransform;
 
-    [SerializeField] Transform directionPointer;
+    //[SerializeField] Transform directionPointer;
 
     Vector3 pointDir;
 
