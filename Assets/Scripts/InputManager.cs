@@ -30,6 +30,8 @@ public class InputManager : MonoBehaviour
         playerControls = new PlayerControls();
 
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
     }
 
     private void OnEnable()
@@ -52,5 +54,14 @@ public class InputManager : MonoBehaviour
         return playerControls.Player.Look.ReadValue<Vector2>();
     }
 
-    
+    public bool PlayerFireinput()
+    {
+        return playerControls.Player.Fire.triggered;
+    }
+
+    public bool PlayerReloadInput()
+    {
+        return playerControls.Player.ActionReload.triggered;
+
+    }
 }
