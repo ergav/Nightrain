@@ -13,7 +13,9 @@ public class WinAndLose : MonoBehaviour
     
     private void Awake()
     {
+
         hs = FindObjectOfType<HealthSystem>();
+
     }
 
     public void GameLost()
@@ -36,6 +38,7 @@ public class WinAndLose : MonoBehaviour
 
     public void GameRestart()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void ExitToMainMenu()

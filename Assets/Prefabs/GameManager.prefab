@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4540638418579330085}
   - component: {fileID: 4540638418579330086}
   - component: {fileID: 4540638418579330084}
+  - component: {fileID: 9119832681606209630}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -62,4 +63,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _HUD_CanvasGroup: {fileID: 0}
-  deathScreenInstance: {fileID: 7164317234923687238, guid: a6372487408550c438717a917e7b312b, type: 3}
+  deathScreen: {fileID: 0}
+--- !u!114 &9119832681606209630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4540638418579330087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1119e350cfac1444180d439ab537b744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
