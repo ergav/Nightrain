@@ -117,11 +117,9 @@ public class Pistol : MonoBehaviour
 
     void Reload()
     {
-        Debug.Log("Re-Goddamn-loading!");
-
         Debug.Log("reloading");
 
-        ammoToAdd = maxAmmo - currentReserveAmmo;
+        ammoToAdd = maxAmmo - currentAmmo;
 
         if (audioSource != null)
         {
@@ -133,14 +131,15 @@ public class Pistol : MonoBehaviour
 
         if (currentReserveAmmo >= ammoToAdd)
         {
-            currentAmmo = currentAmmo + ammoToAdd;
-            currentReserveAmmo = currentReserveAmmo - ammoToAdd;
+            currentAmmo += ammoToAdd;
+            currentReserveAmmo -= ammoToAdd;
+            Debug.Log(ammoToAdd);
         }
         else
         {
-            currentAmmo = currentAmmo + currentReserveAmmo;
-            currentReserveAmmo = currentReserveAmmo - currentReserveAmmo;
-
+            currentAmmo += currentReserveAmmo;
+            currentReserveAmmo -= currentReserveAmmo;
+            Debug.Log(ammoToAdd);
         }
         reloading = false;
 
