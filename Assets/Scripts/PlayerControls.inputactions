@@ -51,15 +51,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Weapon Change",
-                    "type": "Button",
-                    "id": "ef573a3a-d338-4e35-8e3e-134c46288a1c",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Flashlight",
                     "type": "Button",
                     "id": "78ec2c11-32df-4a68-906d-51997a90529b",
@@ -99,6 +90,24 @@
                     "name": "ActionReload",
                     "type": "Button",
                     "id": "0567ae3a-068d-4a45-9c1c-ee812a0446b3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Weapon Slot 1",
+                    "type": "Button",
+                    "id": "ef573a3a-d338-4e35-8e3e-134c46288a1c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Weapon Slot 2",
+                    "type": "Button",
+                    "id": "eaf7d009-2d77-4e43-a312-fde188210a10",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -262,28 +271,6 @@
                 },
                 {
                     "name": "",
-                    "id": "bb96e053-b19b-423e-a011-dafefc68b841",
-                    "path": "<Keyboard>/1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Weapon Change",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "584b58c8-8397-4e29-be98-d53857949de2",
-                    "path": "<Keyboard>/2",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Weapon Change",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "69bf654d-322e-4a49-ae8e-7079447183c5",
                     "path": "<Keyboard>/f",
                     "interactions": "",
@@ -334,6 +321,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "ActionReload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bb96e053-b19b-423e-a011-dafefc68b841",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Weapon Slot 1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b2ffd6a8-5e97-4bcd-8621-fd072b51e4fa",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Weapon Slot 2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

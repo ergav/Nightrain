@@ -133,13 +133,11 @@ public class Pistol : MonoBehaviour
         {
             currentAmmo += ammoToAdd;
             currentReserveAmmo -= ammoToAdd;
-            Debug.Log(ammoToAdd);
         }
         else
         {
             currentAmmo += currentReserveAmmo;
             currentReserveAmmo -= currentReserveAmmo;
-            Debug.Log(ammoToAdd);
         }
         reloading = false;
 

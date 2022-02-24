@@ -30,7 +30,7 @@ public class Melee : MonoBehaviour
 
     void Update()
     {
-        if (inputManager.PlayerFireinput())
+        if (inputManager.PlayerFireinput() && !swung)
         {
             Swing();
         }
@@ -46,7 +46,7 @@ public class Melee : MonoBehaviour
             audioSource.PlayOneShot(swingSound);
         }
         swung = true;
-        //StartCoroutine(CoolDown());
+        StartCoroutine(CoolDown());
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, hitRange))
         {
@@ -77,5 +77,11 @@ public class Melee : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator CoolDown()
+    {
+        yield return new WaitForSeconds(swingCoolDown);
+        swung = false;
     }
 }
