@@ -29,8 +29,8 @@ public class InputManager : MonoBehaviour
 
         playerControls = new PlayerControls();
 
-        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
     }
 
@@ -63,5 +63,20 @@ public class InputManager : MonoBehaviour
     {
         return playerControls.Player.ActionReload.triggered;
 
+    }
+
+    public bool WeaponSlot1()
+    {
+        return playerControls.Player.WeaponSlot1.triggered;
+    }
+
+    public bool WeaponSlot2()
+    {
+        return playerControls.Player.WeaponSlot2.triggered;
+    }
+
+    public bool ActionInteract()
+    {
+        return playerControls.Player.Interaction.triggered;
     }
 }

@@ -73,15 +73,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Weapon Change"",
-                    ""type"": ""Button"",
-                    ""id"": ""ef573a3a-d338-4e35-8e3e-134c46288a1c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Flashlight"",
                     ""type"": ""Button"",
                     ""id"": ""78ec2c11-32df-4a68-906d-51997a90529b"",
@@ -121,6 +112,24 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""name"": ""ActionReload"",
                     ""type"": ""Button"",
                     ""id"": ""0567ae3a-068d-4a45-9c1c-ee812a0446b3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Weapon Slot 1"",
+                    ""type"": ""Button"",
+                    ""id"": ""ef573a3a-d338-4e35-8e3e-134c46288a1c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Weapon Slot 2"",
+                    ""type"": ""Button"",
+                    ""id"": ""eaf7d009-2d77-4e43-a312-fde188210a10"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -284,28 +293,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""bb96e053-b19b-423e-a011-dafefc68b841"",
-                    ""path"": ""<Keyboard>/1"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Weapon Change"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""584b58c8-8397-4e29-be98-d53857949de2"",
-                    ""path"": ""<Keyboard>/2"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Weapon Change"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""69bf654d-322e-4a49-ae8e-7079447183c5"",
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
@@ -358,6 +345,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""ActionReload"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bb96e053-b19b-423e-a011-dafefc68b841"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Weapon Slot 1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b2ffd6a8-5e97-4bcd-8621-fd072b51e4fa"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Weapon Slot 2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -371,12 +380,13 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Scroll = m_Player.FindAction("Scroll", throwIfNotFound: true);
-        m_Player_WeaponChange = m_Player.FindAction("Weapon Change", throwIfNotFound: true);
         m_Player_Flashlight = m_Player.FindAction("Flashlight", throwIfNotFound: true);
         m_Player_Interaction = m_Player.FindAction("Interaction", throwIfNotFound: true);
         m_Player_ActionSprint = m_Player.FindAction("ActionSprint", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_ActionReload = m_Player.FindAction("ActionReload", throwIfNotFound: true);
+        m_Player_WeaponSlot1 = m_Player.FindAction("Weapon Slot 1", throwIfNotFound: true);
+        m_Player_WeaponSlot2 = m_Player.FindAction("Weapon Slot 2", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -441,12 +451,13 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Scroll;
-    private readonly InputAction m_Player_WeaponChange;
     private readonly InputAction m_Player_Flashlight;
     private readonly InputAction m_Player_Interaction;
     private readonly InputAction m_Player_ActionSprint;
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_ActionReload;
+    private readonly InputAction m_Player_WeaponSlot1;
+    private readonly InputAction m_Player_WeaponSlot2;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -456,12 +467,13 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Scroll => m_Wrapper.m_Player_Scroll;
-        public InputAction @WeaponChange => m_Wrapper.m_Player_WeaponChange;
         public InputAction @Flashlight => m_Wrapper.m_Player_Flashlight;
         public InputAction @Interaction => m_Wrapper.m_Player_Interaction;
         public InputAction @ActionSprint => m_Wrapper.m_Player_ActionSprint;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @ActionReload => m_Wrapper.m_Player_ActionReload;
+        public InputAction @WeaponSlot1 => m_Wrapper.m_Player_WeaponSlot1;
+        public InputAction @WeaponSlot2 => m_Wrapper.m_Player_WeaponSlot2;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -486,9 +498,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Scroll.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScroll;
                 @Scroll.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScroll;
                 @Scroll.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScroll;
-                @WeaponChange.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponChange;
-                @WeaponChange.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponChange;
-                @WeaponChange.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponChange;
                 @Flashlight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlashlight;
                 @Flashlight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlashlight;
                 @Flashlight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlashlight;
@@ -504,6 +513,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @ActionReload.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnActionReload;
                 @ActionReload.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnActionReload;
                 @ActionReload.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnActionReload;
+                @WeaponSlot1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponSlot1;
+                @WeaponSlot1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponSlot1;
+                @WeaponSlot1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponSlot1;
+                @WeaponSlot2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponSlot2;
+                @WeaponSlot2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponSlot2;
+                @WeaponSlot2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponSlot2;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -523,9 +538,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Scroll.started += instance.OnScroll;
                 @Scroll.performed += instance.OnScroll;
                 @Scroll.canceled += instance.OnScroll;
-                @WeaponChange.started += instance.OnWeaponChange;
-                @WeaponChange.performed += instance.OnWeaponChange;
-                @WeaponChange.canceled += instance.OnWeaponChange;
                 @Flashlight.started += instance.OnFlashlight;
                 @Flashlight.performed += instance.OnFlashlight;
                 @Flashlight.canceled += instance.OnFlashlight;
@@ -541,6 +553,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @ActionReload.started += instance.OnActionReload;
                 @ActionReload.performed += instance.OnActionReload;
                 @ActionReload.canceled += instance.OnActionReload;
+                @WeaponSlot1.started += instance.OnWeaponSlot1;
+                @WeaponSlot1.performed += instance.OnWeaponSlot1;
+                @WeaponSlot1.canceled += instance.OnWeaponSlot1;
+                @WeaponSlot2.started += instance.OnWeaponSlot2;
+                @WeaponSlot2.performed += instance.OnWeaponSlot2;
+                @WeaponSlot2.canceled += instance.OnWeaponSlot2;
             }
         }
     }
@@ -552,11 +570,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnScroll(InputAction.CallbackContext context);
-        void OnWeaponChange(InputAction.CallbackContext context);
         void OnFlashlight(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
         void OnActionSprint(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnActionReload(InputAction.CallbackContext context);
+        void OnWeaponSlot1(InputAction.CallbackContext context);
+        void OnWeaponSlot2(InputAction.CallbackContext context);
     }
 }
