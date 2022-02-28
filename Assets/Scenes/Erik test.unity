@@ -10427,7 +10427,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-37372
+  m_Name: pb_Mesh-1254
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11539,11 +11539,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1063598621 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1063598621, guid: 1f7de28f6dd138f4d8e52c22f9fb63a8, type: 3}
-  m_PrefabInstance: {fileID: 3016332274053154184}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1082897800
 Mesh:
   m_ObjectHideFlags: 0
@@ -17029,11 +17024,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1861441680 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1861441680, guid: 1f7de28f6dd138f4d8e52c22f9fb63a8, type: 3}
-  m_PrefabInstance: {fileID: 3016332274053154184}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1891316172
 GameObject:
   m_ObjectHideFlags: 0
@@ -20996,64 +20986,9 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1041320121}
-    - target: {fileID: 8216160820612988449, guid: 1f7de28f6dd138f4d8e52c22f9fb63a8, type: 3}
-      propertyPath: m_Tangents.Array.data[94].x
-      value: NaN
-      objectReference: {fileID: 0}
-    - target: {fileID: 8216160820612988449, guid: 1f7de28f6dd138f4d8e52c22f9fb63a8, type: 3}
-      propertyPath: m_Tangents.Array.data[94].y
-      value: NaN
-      objectReference: {fileID: 0}
-    - target: {fileID: 8216160820612988449, guid: 1f7de28f6dd138f4d8e52c22f9fb63a8, type: 3}
-      propertyPath: m_Tangents.Array.data[94].z
-      value: NaN
-      objectReference: {fileID: 0}
-    - target: {fileID: 8216160820612988449, guid: 1f7de28f6dd138f4d8e52c22f9fb63a8, type: 3}
-      propertyPath: m_Tangents.Array.data[95].x
-      value: NaN
-      objectReference: {fileID: 0}
-    - target: {fileID: 8216160820612988449, guid: 1f7de28f6dd138f4d8e52c22f9fb63a8, type: 3}
-      propertyPath: m_Tangents.Array.data[95].y
-      value: NaN
-      objectReference: {fileID: 0}
-    - target: {fileID: 8216160820612988449, guid: 1f7de28f6dd138f4d8e52c22f9fb63a8, type: 3}
-      propertyPath: m_Tangents.Array.data[95].z
-      value: NaN
-      objectReference: {fileID: 0}
-    - target: {fileID: 8216160820612988449, guid: 1f7de28f6dd138f4d8e52c22f9fb63a8, type: 3}
-      propertyPath: m_Tangents.Array.data[96].x
-      value: NaN
-      objectReference: {fileID: 0}
-    - target: {fileID: 8216160820612988449, guid: 1f7de28f6dd138f4d8e52c22f9fb63a8, type: 3}
-      propertyPath: m_Tangents.Array.data[96].y
-      value: NaN
-      objectReference: {fileID: 0}
-    - target: {fileID: 8216160820612988449, guid: 1f7de28f6dd138f4d8e52c22f9fb63a8, type: 3}
-      propertyPath: m_Tangents.Array.data[96].z
-      value: NaN
-      objectReference: {fileID: 0}
     - target: {fileID: 8441383567095444227, guid: 1f7de28f6dd138f4d8e52c22f9fb63a8, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1700512129}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f7de28f6dd138f4d8e52c22f9fb63a8, type: 3}
---- !u!1 &3016332274053154185 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3016332272733925682, guid: 1f7de28f6dd138f4d8e52c22f9fb63a8, type: 3}
-  m_PrefabInstance: {fileID: 3016332274053154184}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3016332274053154186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3016332274053154185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 693879ab4c65dc04fabdfcdb2fa6627b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  melee: {fileID: 1861441680}
-  pistol: {fileID: 1063598621}
