@@ -5,6 +5,7 @@ using UnityEngine;
 public class HealthPack : MonoBehaviour
 {
     [SerializeField] private float healAmount;
+    [SerializeField] private float rotationSpeed;
 
     private HealthSystem hs;
     // Start is called before the first frame update
@@ -12,12 +13,6 @@ public class HealthPack : MonoBehaviour
     {
         hs = FindObjectOfType<HealthSystem>();
     }
-
-    // Update is called once per frame
-
-
-
-
 
     private void OnTriggerEnter(Collider other)
     {
