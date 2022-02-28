@@ -8,6 +8,8 @@ public class WeaponSwitch : MonoBehaviour
 
     int currentWeapon = 1;
 
+    float weaponScrollCurrent;
+
     InputManager inputManager;
 
     void Start()
@@ -38,6 +40,36 @@ public class WeaponSwitch : MonoBehaviour
         {
             currentWeapon = 2;
         }
+
+        Vector2 scroll = inputManager.MouseScroll();
+
+        weaponScrollCurrent = scroll.y;
+
+        if (weaponScrollCurrent == 120)
+        {
+            Debug.Log("Scroll up");
+            if (currentWeapon < 2)
+            {
+                currentWeapon++;
+            }
+            else
+            {
+                currentWeapon = 1;
+            }
+        }
+        else if (weaponScrollCurrent == -120)
+        {
+            Debug.Log("Scroll down");
+            if (currentWeapon > 1)
+            {
+                currentWeapon--;
+            }
+            else
+            {
+                currentWeapon = 2;
+            }
+        }
+
     }
 
     void NoWeapons()

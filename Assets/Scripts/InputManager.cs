@@ -79,4 +79,9 @@ public class InputManager : MonoBehaviour
     {
         return playerControls.Player.Interaction.triggered;
     }
+
+    public Vector2 MouseScroll()
+    {
+        return playerControls.Player.Scroll.ReadValue<Vector2>();
+    }
 }
