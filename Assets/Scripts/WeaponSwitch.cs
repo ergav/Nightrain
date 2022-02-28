@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class WeaponSwitch : MonoBehaviour
 {
-    public GameObject melee, pistol;
+    //public GameObject melee, pistol;
+
+    public List<GameObject> weapons = new List<GameObject>();
 
     int currentWeapon = 1;
+
+    [SerializeField] int maxWeapons = 6;
 
     float weaponScrollCurrent;
 
@@ -15,30 +19,34 @@ public class WeaponSwitch : MonoBehaviour
     void Start()
     {
         inputManager = InputManager.Instance;
+        SwitchWeapon();
     }
 
     void Update()
     {
-        switch(currentWeapon)
-        {
-            case 0:
-                NoWeapons();
-                break;
-            case 1:
-                MeleeEquipped();
-                break;
-            case 2:
-                PistolEquipped();
-                break;
-        }
+        //switch(currentWeapon)
+        //{
+        //    case 0:
+        //        NoWeapons();
+        //        break;
+        //    case 1:
+        //        MeleeEquipped();
+        //        break;
+        //    case 2:
+        //        PistolEquipped();
+        //        break;
+        //}
 
         if (inputManager.WeaponSlot1())
         {
             currentWeapon = 1;
+            SwitchWeapon();
+
         }
         if (inputManager.WeaponSlot2())
         {
             currentWeapon = 2;
+            SwitchWeapon();
         }
 
         Vector2 scroll = inputManager.MouseScroll();
@@ -48,7 +56,7 @@ public class WeaponSwitch : MonoBehaviour
         if (weaponScrollCurrent == 120)
         {
             Debug.Log("Scroll up");
-            if (currentWeapon < 2)
+            if (currentWeapon < weapons.Count)
             {
                 currentWeapon++;
             }
@@ -56,6 +64,8 @@ public class WeaponSwitch : MonoBehaviour
             {
                 currentWeapon = 1;
             }
+            SwitchWeapon();
+
         }
         else if (weaponScrollCurrent == -120)
         {
@@ -66,27 +76,46 @@ public class WeaponSwitch : MonoBehaviour
             }
             else
             {
-                currentWeapon = 2;
+                currentWeapon = weapons.Count;
             }
+            SwitchWeapon();
         }
 
+
+
     }
 
-    void NoWeapons()
-    {
-        melee.SetActive(false);
-        pistol.SetActive(false);
-    }
+    //void NoWeapons()
+    //{
+    //    melee.SetActive(false);
+    //    pistol.SetActive(false);
+    //}
 
-    void MeleeEquipped()
-    {
-        melee.SetActive(true);
-        pistol.SetActive(false);
-    }
+    //void MeleeEquipped()
+    //{
+    //    melee.SetActive(true);
+    //    pistol.SetActive(false);
+    //}
 
-    void PistolEquipped()
+    //void PistolEquipped()
+    //{
+    //    melee.SetActive(false);
+    //    pistol.SetActive(true);
+    //}
+
+    void SwitchWeapon()
     {
-        melee.SetActive(false);
-        pistol.SetActive(true);
+        for (int i = 1; i <= weapons.Count; i++)
+        {
+            if (i == currentWeapon)
+            {
+                weapons[i-1].SetActive(true);
+            }
+            else
+            {
+                weapons[i-1].SetActive(false);
+            }
+
+        }
     }
 }

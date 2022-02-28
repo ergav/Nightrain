@@ -30,7 +30,7 @@ Transform:
   m_Children:
   - {fileID: 2840409056875445253}
   m_Father: {fileID: 3016332273919418794}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1063598623
 MonoBehaviour:
@@ -87,7 +87,7 @@ Transform:
   m_Children:
   - {fileID: 6574741671466426540}
   m_Father: {fileID: 3016332273919418794}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1861441682
 MonoBehaviour:
@@ -188,8 +188,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693879ab4c65dc04fabdfcdb2fa6627b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  melee: {fileID: 1861441680}
-  pistol: {fileID: 1063598621}
+  weapons: []
+  currentWeapon: 1
+  maxWeapons: 2
 --- !u!1 &3016332273189734361
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,8 +318,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.70000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1063598622}
   - {fileID: 1861441681}
+  - {fileID: 1063598622}
   m_Father: {fileID: 3016332272733925685}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
