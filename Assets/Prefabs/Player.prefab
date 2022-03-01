@@ -178,7 +178,7 @@ MonoBehaviour:
   gravityValue: -9.81
   isCrouching: 0
   crouchHeight: 0.5
-  crouchCamPos: 0.5
+  crouchCamPos: 0.25
   crouchTime: 5
 --- !u!114 &2470670977886455352
 MonoBehaviour:

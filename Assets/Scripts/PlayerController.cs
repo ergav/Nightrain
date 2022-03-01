@@ -84,6 +84,7 @@ public class PlayerController : MonoBehaviour
         }
 
         controller.height = Mathf.Lerp(defaultHeight, crouchHeight, crouchTimer);
+        cameraTransform.transform.localPosition = new Vector3(cameraTransform.transform.localPosition.x, Mathf.Lerp(defaultCamPos, crouchCamPos, crouchTimer), cameraTransform.transform.localPosition.z);
 
         if (isCrouching)
         {
