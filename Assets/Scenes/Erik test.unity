@@ -7290,6 +7290,10 @@ MonoBehaviour:
   playerSpeed: 4
   jumpHeight: 1
   gravityValue: -9.81
+  isCrouching: 0
+  crouchHeight: 0
+  crouchCamPos: 0.5
+  crouchTime: 0.5
 --- !u!143 &780223516
 CharacterController:
   m_ObjectHideFlags: 0
@@ -10099,7 +10103,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1254
+  m_Name: pb_Mesh-1274
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17029,11 +17033,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1861441680 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1861441680, guid: 1f7de28f6dd138f4d8e52c22f9fb63a8, type: 3}
-  m_PrefabInstance: {fileID: 3016332274053154184}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1891316172
 GameObject:
   m_ObjectHideFlags: 0
@@ -20937,21 +20936,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1700512129}
     - target: {fileID: 2470670977886455352, guid: 1f7de28f6dd138f4d8e52c22f9fb63a8, type: 3}
-      propertyPath: weapons.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2470670977886455352, guid: 1f7de28f6dd138f4d8e52c22f9fb63a8, type: 3}
-      propertyPath: weapons.Array.data[0]
-      value: 
-      objectReference: {fileID: 1861441680}
-    - target: {fileID: 2470670977886455352, guid: 1f7de28f6dd138f4d8e52c22f9fb63a8, type: 3}
-      propertyPath: weapons.Array.data[1]
-      value: 
-      objectReference: {fileID: 1063598621}
-    - target: {fileID: 2470670977886455352, guid: 1f7de28f6dd138f4d8e52c22f9fb63a8, type: 3}
       propertyPath: weapons.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1063598621}
     - target: {fileID: 2470670977886455352, guid: 1f7de28f6dd138f4d8e52c22f9fb63a8, type: 3}
       propertyPath: weapons.Array.data[3]
       value: 

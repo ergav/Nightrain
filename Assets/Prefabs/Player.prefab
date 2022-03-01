@@ -176,6 +176,10 @@ MonoBehaviour:
   playerSpeed: 4
   jumpHeight: 1
   gravityValue: -9.81
+  isCrouching: 0
+  crouchHeight: 0.5
+  crouchCamPos: 0.5
+  crouchTime: 5
 --- !u!114 &2470670977886455352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,8 +192,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693879ab4c65dc04fabdfcdb2fa6627b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons: []
-  currentWeapon: 1
+  weapons:
+  - {fileID: 1861441680}
+  - {fileID: 1063598621}
   maxWeapons: 2
 --- !u!1 &3016332273189734361
 GameObject:

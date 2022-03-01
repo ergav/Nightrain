@@ -16,16 +16,29 @@ public class PlayerController : MonoBehaviour
 
     Transform cameraTransform;
 
+    [SerializeField] bool isCrouching;
+    bool canRiseFromCrouch;
+
+    [SerializeField] float crouchHeight = 0.5f;
+    float defaultHeight;
+    float defaultCamPos;
+    [SerializeField] float crouchCamPos = 0.5f;
+
+    [SerializeField] float crouchTime = 5;
+
     //[SerializeField] Transform directionPointer;
 
-    Vector3 pointDir;
-
+    float crouchTimer;
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         inputManager = InputManager.Instance;
         cameraTransform = Camera.main.transform;
+
+        defaultHeight = controller.height;
+        defaultCamPos = cameraTransform.transform.localPosition.y;
+
     }
 
     void Update()
@@ -56,6 +69,81 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
+
+        //Crouch
+        if (inputManager.ActionCrouch())
+        {
+
+            isCrouching = true;
+            Debug.Log("Crouching");
+        }
+        else
+        {
+            isCrouching = false;
+
+        }
+
+        controller.height = Mathf.Lerp(defaultHeight, crouchHeight, crouchTimer);
+
+        if (isCrouching)
+        {
+            crouchTimer = Mathf.Clamp01(crouchTimer + Time.deltaTime * crouchTime);
+
+            //if (timer <  crouchTime)
+            //{
+            //    controller.height = Mathf.Lerp(defaultHeight, crouchHeight, timer / crouchTime);
+            //    timer += Time.deltaTime;
+            //}
+            //else
+            //{
+            //    controller.height = crouchHeight;
+            //}
+
+            //if (controller.height > crouchHeight)
+            //{
+            //    controller.height = Mathf.Lerp(defaultHeight, crouchHeight, timer / crouchTime);
+            //}
+            //else
+            //{
+            //    controller.height = crouchHeight;
+            //}
+
+            //controller.height = crouchHeight;
+            //cameraTransform.transform.localPosition = new Vector3(cameraTransform.transform.localPosition.x, crouchCamPos, cameraTransform.transform.localPosition.z);
+        }
+        else
+        {
+            crouchTimer = Mathf.Clamp01(crouchTimer - Time.deltaTime * crouchTime);
+
+
+            //if (timer < crouchTime)
+            //{
+            //    controller.height = Mathf.Lerp(crouchHeight, defaultHeight, timer / crouchTime);
+            //    timer += Time.deltaTime;
+            //}
+            //else
+            //{
+            //    controller.height = defaultHeight;
+            //}
+
+            //controller.height = defaultHeight;
+            //cameraTransform.transform.localPosition = new Vector3(cameraTransform.transform.localPosition.x, defaultCamPos, cameraTransform.transform.localPosition.z);
+        }
+
+    }
+
+    bool CheckCanRise()
+    {
+        Ray checkCeiling = new Ray(transform.position, transform.up);
+        RaycastHit hit;
+        if (Physics.Raycast(checkCeiling, out hit, 1.2f))
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
 
     }
 }

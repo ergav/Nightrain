@@ -84,4 +84,9 @@ public class InputManager : MonoBehaviour
     {
         return playerControls.Player.Scroll.ReadValue<Vector2>();
     }
+
+    public bool ActionCrouch()
+    {
+        return playerControls.Player.ActionCrouch.IsPressed();
+    }
 }
