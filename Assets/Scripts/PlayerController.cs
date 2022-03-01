@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     Transform cameraTransform;
 
     [SerializeField] bool isCrouching;
-    bool canRiseFromCrouch;
+    public bool canRiseFromCrouch = true;
 
     [SerializeField] float crouchHeight = 0.5f;
     float defaultHeight;
@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
         controller.height = Mathf.Lerp(defaultHeight, crouchHeight, crouchTimer);
         cameraTransform.transform.localPosition = new Vector3(cameraTransform.transform.localPosition.x, Mathf.Lerp(defaultCamPos, crouchCamPos, crouchTimer), cameraTransform.transform.localPosition.z);
 
-        if (isCrouching)
+        if (isCrouching || !canRiseFromCrouch)
         {
             crouchTimer = Mathf.Clamp01(crouchTimer + Time.deltaTime * crouchTime);
 
@@ -131,6 +131,7 @@ public class PlayerController : MonoBehaviour
             //cameraTransform.transform.localPosition = new Vector3(cameraTransform.transform.localPosition.x, defaultCamPos, cameraTransform.transform.localPosition.z);
         }
 
+        CheckCanRise();
     }
 
     bool CheckCanRise()
