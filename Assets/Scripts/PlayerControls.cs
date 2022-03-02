@@ -134,6 +134,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Weapon Slots"",
+                    ""type"": ""Button"",
+                    ""id"": ""c0f4a547-0cf8-4ad3-9c81-c0985255d150"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -367,6 +376,72 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Weapon Slot 2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""20a907b0-67df-43a7-82a6-7fd9f13ad8f2"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Weapon Slots"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9380de21-b759-453d-8b81-0bc01061dbae"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Weapon Slots"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b19141fa-1c6b-416f-9842-a1a02632d96e"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Weapon Slots"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""50c07d71-0554-4a12-b52a-fc78cb16852f"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Weapon Slots"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d9d9c4db-38e0-4508-8237-42c96c056db9"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Weapon Slots"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2be08d13-4a78-4822-9d48-6ceff9d27dba"",
+                    ""path"": ""<Keyboard>/6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Weapon Slots"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -387,6 +462,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_ActionReload = m_Player.FindAction("ActionReload", throwIfNotFound: true);
         m_Player_WeaponSlot1 = m_Player.FindAction("Weapon Slot 1", throwIfNotFound: true);
         m_Player_WeaponSlot2 = m_Player.FindAction("Weapon Slot 2", throwIfNotFound: true);
+        m_Player_WeaponSlots = m_Player.FindAction("Weapon Slots", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -458,6 +534,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_ActionReload;
     private readonly InputAction m_Player_WeaponSlot1;
     private readonly InputAction m_Player_WeaponSlot2;
+    private readonly InputAction m_Player_WeaponSlots;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -474,6 +551,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @ActionReload => m_Wrapper.m_Player_ActionReload;
         public InputAction @WeaponSlot1 => m_Wrapper.m_Player_WeaponSlot1;
         public InputAction @WeaponSlot2 => m_Wrapper.m_Player_WeaponSlot2;
+        public InputAction @WeaponSlots => m_Wrapper.m_Player_WeaponSlots;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -519,6 +597,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @WeaponSlot2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponSlot2;
                 @WeaponSlot2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponSlot2;
                 @WeaponSlot2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponSlot2;
+                @WeaponSlots.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponSlots;
+                @WeaponSlots.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponSlots;
+                @WeaponSlots.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponSlots;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -559,6 +640,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @WeaponSlot2.started += instance.OnWeaponSlot2;
                 @WeaponSlot2.performed += instance.OnWeaponSlot2;
                 @WeaponSlot2.canceled += instance.OnWeaponSlot2;
+                @WeaponSlots.started += instance.OnWeaponSlots;
+                @WeaponSlots.performed += instance.OnWeaponSlots;
+                @WeaponSlots.canceled += instance.OnWeaponSlots;
             }
         }
     }
@@ -577,5 +661,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnActionReload(InputAction.CallbackContext context);
         void OnWeaponSlot1(InputAction.CallbackContext context);
         void OnWeaponSlot2(InputAction.CallbackContext context);
+        void OnWeaponSlots(InputAction.CallbackContext context);
     }
 }

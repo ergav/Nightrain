@@ -12,7 +12,8 @@ public class Melee : MonoBehaviour
     [SerializeField] float hitRange = 5;
 
     [SerializeField] AudioSource audioSource;
-    [SerializeField] AudioClip swingSound, hitSound;
+    [SerializeField] AudioClip swingSound;
+    [SerializeField] AudioClip hitSound;
     InputManager inputManager;
 
     bool swung;
@@ -25,6 +26,10 @@ public class Melee : MonoBehaviour
         if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = GetComponentInParent<AudioSource>();
+            }
         }
     }
 
@@ -41,7 +46,7 @@ public class Melee : MonoBehaviour
         Debug.Log("Swoosh!");
 
         //anim.Play("MeleeSwing");
-        if (audioSource != null)
+        if (swingSound != null)
         {
             audioSource.PlayOneShot(swingSound);
         }
@@ -71,7 +76,7 @@ public class Melee : MonoBehaviour
             {
                 rb = hit.transform.GetComponent<Rigidbody>();
                 rb.AddForce(transform.forward * hitForce);
-                if (audioSource != null)
+                if (hitSound != null)
                 {
                     audioSource.PlayOneShot(hitSound);
                 }

@@ -92,45 +92,11 @@ public class PlayerController : MonoBehaviour
         {
             crouchTimer = Mathf.Clamp01(crouchTimer + Time.deltaTime * crouchTime);
 
-            //if (timer <  crouchTime)
-            //{
-            //    controller.height = Mathf.Lerp(defaultHeight, crouchHeight, timer / crouchTime);
-            //    timer += Time.deltaTime;
-            //}
-            //else
-            //{
-            //    controller.height = crouchHeight;
-            //}
-
-            //if (controller.height > crouchHeight)
-            //{
-            //    controller.height = Mathf.Lerp(defaultHeight, crouchHeight, timer / crouchTime);
-            //}
-            //else
-            //{
-            //    controller.height = crouchHeight;
-            //}
-
-            //controller.height = crouchHeight;
-            //cameraTransform.transform.localPosition = new Vector3(cameraTransform.transform.localPosition.x, crouchCamPos, cameraTransform.transform.localPosition.z);
         }
         else
         {
             crouchTimer = Mathf.Clamp01(crouchTimer - Time.deltaTime * crouchTime);
 
-
-            //if (timer < crouchTime)
-            //{
-            //    controller.height = Mathf.Lerp(crouchHeight, defaultHeight, timer / crouchTime);
-            //    timer += Time.deltaTime;
-            //}
-            //else
-            //{
-            //    controller.height = defaultHeight;
-            //}
-
-            //controller.height = defaultHeight;
-            //cameraTransform.transform.localPosition = new Vector3(cameraTransform.transform.localPosition.x, defaultCamPos, cameraTransform.transform.localPosition.z);
         }
 
     }

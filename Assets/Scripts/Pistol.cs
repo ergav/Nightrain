@@ -12,7 +12,8 @@ public class Pistol : MonoBehaviour
     [SerializeField] int maxReserveAmmo = 24;
     [Space]
     [SerializeField] float shootDelaySpeed = 0.2f;
-    [SerializeField] float shootCooldown = 0.75f;
+    [SerializeField] float shootCooldownTime = 0.75f;
+    [SerializeField] float reloadTime = 1;
     AudioSource audioSource;
     [SerializeField] AudioClip shootSound, reloadSound, equipSound, shootEmptySound;
 
@@ -24,6 +25,7 @@ public class Pistol : MonoBehaviour
     [SerializeField] float maxDistance = 100;
 
     bool reloading;
+    bool shootCooldown;
 
     int ammoToAdd;
 
@@ -34,8 +36,14 @@ public class Pistol : MonoBehaviour
         if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = GetComponentInParent<AudioSource>();
+            }
         }
     }
+
+    float timer = 0;
 
     void Update()
     {
@@ -48,6 +56,18 @@ public class Pistol : MonoBehaviour
         if (inputManager.PlayerReloadInput() && currentAmmo < maxAmmo && !reloading && currentReserveAmmo > 0)
         {
             Reload();
+        }
+
+
+        if (reloading)
+        {
+            Debug.Log("SHIT");
+            timer += Time.deltaTime;
+            if (timer > reloadTime)
+            {
+                reloading = false;
+                timer = 0;
+            }
         }
 
         //Ammo
@@ -75,7 +95,7 @@ public class Pistol : MonoBehaviour
         if (currentAmmo > 0)
         {
             Debug.Log("Bang!");
-            if (audioSource != null)
+            if (shootSound != null)
             {
                 audioSource.PlayOneShot(shootSound);
             }
@@ -108,7 +128,7 @@ public class Pistol : MonoBehaviour
         else
         {
             Debug.Log("no ammo");
-            if (audioSource != null)
+            if (shootEmptySound != null)
             {
                 audioSource.PlayOneShot(shootEmptySound);
             }
@@ -117,17 +137,19 @@ public class Pistol : MonoBehaviour
 
     void Reload()
     {
-        Debug.Log("reloading");
+        //Debug.Log("reloading");
 
         ammoToAdd = maxAmmo - currentAmmo;
 
-        if (audioSource != null)
+        if (reloadSound != null)
         {
             audioSource.PlayOneShot(reloadSound);
         }
         //StartCoroutine(Reloading());
         //anim.Play("PistolReload");
         reloading = true;
+
+
 
         if (currentReserveAmmo >= ammoToAdd)
         {
@@ -139,7 +161,7 @@ public class Pistol : MonoBehaviour
             currentAmmo += currentReserveAmmo;
             currentReserveAmmo -= currentReserveAmmo;
         }
-        reloading = false;
+        //reloading = false;
 
     }
 
