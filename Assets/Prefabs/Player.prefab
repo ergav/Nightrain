@@ -53,7 +53,7 @@ MonoBehaviour:
   shootCooldownTime: 0.75
   reloadTime: 2
   shootSound: {fileID: 8300000, guid: 58b3a3f677133b14f89d4ff9c9641843, type: 3}
-  reloadSound: {fileID: 0}
+  reloadSound: {fileID: 8300000, guid: 577f11e5930f8074f9e867acdb31152e, type: 3}
   equipSound: {fileID: 0}
   shootEmptySound: {fileID: 8300000, guid: a65be5520d93c104780887783eece7d1, type: 3}
   bulletForce: 100
