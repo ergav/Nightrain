@@ -42,7 +42,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""id"": ""8dcec259-228c-4182-b73c-83c9e7d129f8"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Hold,Press"",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
@@ -251,7 +251,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""73d4c29f-7ce4-4226-8f49-d1c29400a398"",
                     ""path"": ""<Keyboard>/ctrl"",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ActionCrouch"",
