@@ -61,7 +61,6 @@ public class Pistol : MonoBehaviour
 
         if (reloading)
         {
-            Debug.Log("SHIT");
             timer += Time.deltaTime;
             if (timer > reloadTime)
             {
