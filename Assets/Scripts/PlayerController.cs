@@ -86,6 +86,8 @@ public class PlayerController : MonoBehaviour
         controller.height = Mathf.Lerp(defaultHeight, crouchHeight, crouchTimer);
         cameraTransform.transform.localPosition = new Vector3(cameraTransform.transform.localPosition.x, Mathf.Lerp(defaultCamPos, crouchCamPos, crouchTimer), cameraTransform.transform.localPosition.z);
 
+        canRiseFromCrouch = CheckCanRise();
+
         if (isCrouching || !canRiseFromCrouch)
         {
             crouchTimer = Mathf.Clamp01(crouchTimer + Time.deltaTime * crouchTime);
@@ -131,7 +133,6 @@ public class PlayerController : MonoBehaviour
             //cameraTransform.transform.localPosition = new Vector3(cameraTransform.transform.localPosition.x, defaultCamPos, cameraTransform.transform.localPosition.z);
         }
 
-        CheckCanRise();
     }
 
     bool CheckCanRise()
@@ -140,6 +141,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(checkCeiling, out hit, 1.2f))
         {
+            Debug.Log("Celing Above");
             return false;
         }
         else
