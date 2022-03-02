@@ -9,7 +9,7 @@ public class Melee : MonoBehaviour
     [SerializeField] int damage = 10;
     [SerializeField] float hitForce = 100;
     [SerializeField] float swingCoolDown = 0.8f;
-    [SerializeField] float hitRange = 5;
+    [SerializeField] float hitRange = 1.5f;
 
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip swingSound;
@@ -32,12 +32,22 @@ public class Melee : MonoBehaviour
             }
         }
     }
-
+    float timer;
     void Update()
     {
         if (inputManager.PlayerFireinput() && !swung)
         {
             Swing();
+        }
+
+        if (swung)
+        {
+            timer += Time.deltaTime;
+            if (timer > swingCoolDown)
+            {
+                swung = false;
+                timer = 0;
+            }
         }
     }
 
@@ -51,7 +61,7 @@ public class Melee : MonoBehaviour
             audioSource.PlayOneShot(swingSound);
         }
         swung = true;
-        StartCoroutine(CoolDown());
+        //StartCoroutine(CoolDown());
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, hitRange))
         {

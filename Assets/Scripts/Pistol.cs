@@ -43,14 +43,16 @@ public class Pistol : MonoBehaviour
         }
     }
 
-    float timer = 0;
+    float reloadTimer;
+    float shootTimer;
 
     void Update()
     {
 
-        if (inputManager.PlayerFireinput() && !reloading)
+        if (inputManager.PlayerFireinput() && !reloading && !shootCooldown)
         {
             Shoot();
+            shootCooldown = true;
         }
 
         if (inputManager.PlayerReloadInput() && currentAmmo < maxAmmo && !reloading && currentReserveAmmo > 0)
@@ -61,11 +63,21 @@ public class Pistol : MonoBehaviour
 
         if (reloading)
         {
-            timer += Time.deltaTime;
-            if (timer > reloadTime)
+            reloadTimer += Time.deltaTime;
+            if (reloadTimer > reloadTime)
             {
                 reloading = false;
-                timer = 0;
+                reloadTimer = 0;
+            }
+        }
+
+        if (shootCooldown)
+        {
+            shootTimer += Time.deltaTime;
+            if (shootTimer > shootCooldownTime)
+            {
+                shootCooldown = false;
+                shootTimer = 0;
             }
         }
 

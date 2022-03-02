@@ -91,4 +91,9 @@ public class InputManager : MonoBehaviour
         return playerControls.Player.ActionCrouch.IsPressed();
     }
 
+    public bool ActionSprint()
+    {
+        return playerControls.Player.ActionSprint.IsPressed();
+    }
+
 }

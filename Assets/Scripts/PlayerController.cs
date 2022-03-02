@@ -5,7 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float playerSpeed = 2.0f;
+    [SerializeField] float walkSpeed = 2.0f;
+    [SerializeField] float sprintSpeed = 6.0f;
     [SerializeField] float jumpHeight = 1.0f;
     [SerializeField] float gravityValue = -9.81f;
     private CharacterController controller;
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     Transform cameraTransform;
 
     [SerializeField] bool isCrouching;
+    [SerializeField] bool isSprinting;
     public bool canRiseFromCrouch = true;
 
     [SerializeField] float crouchHeight = 0.5f;
@@ -25,10 +27,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float crouchCamPos = 0.5f;
 
     [SerializeField] float crouchTime = 5;
+    [SerializeField] float sprintTime;
 
     //[SerializeField] Transform directionPointer;
 
     float crouchTimer;
+    float speed;
 
     private void Start()
     {
@@ -53,7 +57,16 @@ public class PlayerController : MonoBehaviour
         Vector3 move = new Vector3(movement.x, 0f, movement.y);
         move = transform.forward * move.z + transform.right * move.x;
         move.y = 0;
-        controller.Move(move * Time.deltaTime * playerSpeed);
+        controller.Move(move * Time.deltaTime * speed);
+
+        if (isSprinting)
+        {
+            speed = sprintSpeed;
+        }
+        else
+        {
+            speed = walkSpeed;
+        }
 
         //if (move != Vector3.zero)
         //{
@@ -96,6 +109,20 @@ public class PlayerController : MonoBehaviour
         else
         {
             crouchTimer = Mathf.Clamp01(crouchTimer - Time.deltaTime * crouchTime);
+
+        }
+
+
+        //Sprint
+        if (inputManager.ActionSprint() && !isCrouching)
+        {
+
+            isSprinting = true;
+            Debug.Log("sprinting");
+        }
+        else
+        {
+            isSprinting = false;
 
         }
 

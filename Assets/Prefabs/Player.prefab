@@ -105,7 +105,7 @@ MonoBehaviour:
   damage: 10
   hitForce: 100
   swingCoolDown: 0.8
-  hitRange: 5
+  hitRange: 1.5
   audioSource: {fileID: 0}
   swingSound: {fileID: 8300000, guid: 7b76532bf0e1e404eadc9cf011fb5adb, type: 3}
   hitSound: {fileID: 8300000, guid: c189f1329dcee874ba4f2e74b0881df3, type: 3}
@@ -155,7 +155,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -173,14 +173,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a87aa9ad184e6d64bb11750e3b17a44d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 4
+  walkSpeed: 2
+  sprintSpeed: 6
   jumpHeight: 1
   gravityValue: -9.81
   isCrouching: 0
+  isSprinting: 0
   canRiseFromCrouch: 1
   crouchHeight: 0.5
   crouchCamPos: 0.25
   crouchTime: 5
+  sprintTime: 0
 --- !u!114 &2470670977886455352
 MonoBehaviour:
   m_ObjectHideFlags: 0
