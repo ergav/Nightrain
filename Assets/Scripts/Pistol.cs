@@ -18,6 +18,7 @@ public class Pistol : MonoBehaviour
     [SerializeField] AudioClip shootSound, reloadSound, equipSound, shootEmptySound;
 
     InputManager inputManager;
+    WeaponStats weaponStats;
 
     Rigidbody rb;
 
@@ -41,6 +42,8 @@ public class Pistol : MonoBehaviour
                 audioSource = GetComponentInParent<AudioSource>();
             }
         }
+
+        weaponStats = GetComponentInParent<WeaponStats>();
     }
 
     float reloadTimer;
@@ -176,7 +179,7 @@ public class Pistol : MonoBehaviour
 
     }
 
-    void GainAmmo(int amount)
+    public void GainAmmo(int amount)
     {
         currentReserveAmmo += amount;
     }

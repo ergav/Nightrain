@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 3016332272733925684}
   - component: {fileID: 3016332272733925683}
   - component: {fileID: 2470670977886455352}
+  - component: {fileID: 97508156915443084}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -200,6 +201,22 @@ MonoBehaviour:
   - {fileID: 1861441680}
   - {fileID: 1063598621}
   maxWeapons: 2
+--- !u!114 &97508156915443084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3016332272733925682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81971f7cf1cfe645a6324fcdc6a56be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentRevolverAmmo: 6
+  maxRevolverAmmo: 6
+  currentRevolverReserveAmmo: 6
+  maxRevolverReserveAmmo: 24
 --- !u!1 &3016332273919418793
 GameObject:
   m_ObjectHideFlags: 0

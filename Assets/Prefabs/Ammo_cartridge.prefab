@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2176458226038376698}
   - component: {fileID: 2998146850113029983}
   - component: {fileID: 1044687663218652053}
+  - component: {fileID: 6887480337010901759}
   - component: {fileID: 8346910184665105009}
   m_Layer: 0
   m_Name: Ammo_cartridge
@@ -82,6 +83,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6887480337010901759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549103672872325696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b95b391409a6e54aaca018274b9b307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &8346910184665105009
 BoxCollider:
   m_ObjectHideFlags: 0
