@@ -90,7 +90,6 @@ public class PlayerController : MonoBehaviour
         {
 
             isCrouching = true;
-            //Debug.Log("Crouching");
         }
         else
         {
@@ -130,7 +129,6 @@ public class PlayerController : MonoBehaviour
         {
 
             isSprinting = true;
-            //Debug.Log("sprinting");
         }
         else
         {
@@ -151,7 +149,6 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(checkCeiling, out hit, 1.2f))
         {
-            Debug.Log("Celing Above");
             return false;
         }
         else
