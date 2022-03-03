@@ -71,6 +71,17 @@ public class Pistol : MonoBehaviour
             {
                 reloading = false;
                 reloadTimer = 0;
+
+                if (weaponStats.currentRevolverReserveAmmo >= ammoToAdd)
+                {
+                    weaponStats.currentRevolverAmmo += ammoToAdd;
+                    weaponStats.currentRevolverReserveAmmo -= ammoToAdd;
+                }
+                else
+                {
+                    weaponStats.currentRevolverAmmo += weaponStats.currentRevolverReserveAmmo;
+                    weaponStats.currentRevolverReserveAmmo -= weaponStats.currentRevolverReserveAmmo;
+                }
             }
         }
 
@@ -165,16 +176,16 @@ public class Pistol : MonoBehaviour
 
 
 
-        if (weaponStats.currentRevolverReserveAmmo >= ammoToAdd)
-        {
-            weaponStats.currentRevolverAmmo += ammoToAdd;
-            weaponStats.currentRevolverReserveAmmo -= ammoToAdd;
-        }
-        else
-        {
-            weaponStats.currentRevolverAmmo += weaponStats.currentRevolverReserveAmmo;
-            weaponStats.currentRevolverReserveAmmo -= weaponStats.currentRevolverReserveAmmo;
-        }
+        //if (weaponStats.currentRevolverReserveAmmo >= ammoToAdd)
+        //{
+        //    weaponStats.currentRevolverAmmo += ammoToAdd;
+        //    weaponStats.currentRevolverReserveAmmo -= ammoToAdd;
+        //}
+        //else
+        //{
+        //    weaponStats.currentRevolverAmmo += weaponStats.currentRevolverReserveAmmo;
+        //    weaponStats.currentRevolverReserveAmmo -= weaponStats.currentRevolverReserveAmmo;
+        //}
         //reloading = false;
 
     }

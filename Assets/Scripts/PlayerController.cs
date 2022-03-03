@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpHeight = 1.0f;
     [SerializeField] float gravityValue = -9.81f;
     private CharacterController controller;
+    private CapsuleCollider capsuleCollider;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
 
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
         inputManager = InputManager.Instance;
         cameraTransform = Camera.main.transform;
 
@@ -88,12 +90,19 @@ public class PlayerController : MonoBehaviour
         {
 
             isCrouching = true;
-            Debug.Log("Crouching");
+            //Debug.Log("Crouching");
         }
         else
         {
-            isCrouching = false;
+            if (canRiseFromCrouch)
+            {
+                isCrouching = false;
 
+            }
+            else
+            {
+                isCrouching = true;
+            }
         }
 
         controller.height = Mathf.Lerp(defaultHeight, crouchHeight, crouchTimer);
@@ -121,7 +130,7 @@ public class PlayerController : MonoBehaviour
         {
 
             isSprinting = true;
-            Debug.Log("sprinting");
+            //Debug.Log("sprinting");
         }
         else
         {
@@ -129,6 +138,11 @@ public class PlayerController : MonoBehaviour
 
         }
 
+
+        if (capsuleCollider != null)
+        {
+            capsuleCollider.height = controller.height;
+        }
     }
 
     bool CheckCanRise()
