@@ -10,13 +10,8 @@ public class WeaponStats : MonoBehaviour
     public int maxRevolverReserveAmmo = 24;
 
 
-    void Start()
+    public void GainRevolverAmmo(int amount)
     {
-        
-    }
-
-    void Update()
-    {
-        
+        currentRevolverReserveAmmo += amount;
     }
 }

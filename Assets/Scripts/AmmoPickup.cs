@@ -5,8 +5,7 @@ using UnityEngine;
 public class AmmoPickup : MonoBehaviour
 {
     [SerializeField] int ammoToAdd = 6;
-    GameObject pistolTransform;
-    public Pistol pistol;
+    public WeaponStats weaponStats;
 
     void Start()
     {
@@ -22,9 +21,8 @@ public class AmmoPickup : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            pistolTransform = other.GetComponentInChildren<Pistol>().gameObject;
-            pistol = pistolTransform.GetComponent<Pistol>();
-            pistol.GainAmmo(ammoToAdd);
+            weaponStats = other.GetComponent<WeaponStats>();
+            weaponStats.GainRevolverAmmo(ammoToAdd);
             Destroy(gameObject);
         }
     }

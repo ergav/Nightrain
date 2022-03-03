@@ -6,10 +6,10 @@ using UnityEngine.InputSystem;
 public class Pistol : MonoBehaviour
 {
     [SerializeField] int damage = 10;
-    [SerializeField] int currentAmmo = 6;
-    [SerializeField] int currentReserveAmmo;
-    [SerializeField] int maxAmmo = 6;
-    [SerializeField] int maxReserveAmmo = 24;
+    //[SerializeField] int weaponStats.currentRevolverAmmo = 6;
+    //[SerializeField] int weaponStats.currentRevolverReserveAmmo;
+    //[SerializeField] int weaponStats.maxRevolverAmmo = 6;
+    //[SerializeField] int weaponStats.maxRevolverReserveAmmo = 24;
     [Space]
     [SerializeField] float shootDelaySpeed = 0.2f;
     [SerializeField] float shootCooldownTime = 0.75f;
@@ -58,7 +58,7 @@ public class Pistol : MonoBehaviour
             shootCooldown = true;
         }
 
-        if (inputManager.PlayerReloadInput() && currentAmmo < maxAmmo && !reloading && currentReserveAmmo > 0)
+        if (inputManager.PlayerReloadInput() && weaponStats.currentRevolverAmmo < weaponStats.maxRevolverAmmo && !reloading && weaponStats.currentRevolverReserveAmmo > 0)
         {
             Reload();
         }
@@ -85,35 +85,35 @@ public class Pistol : MonoBehaviour
         }
 
         //Ammo
-        if (currentAmmo > maxAmmo)
+        if (weaponStats.currentRevolverAmmo > weaponStats.maxRevolverAmmo)
         {
-            currentAmmo = maxAmmo;
+            weaponStats.currentRevolverAmmo = weaponStats.maxRevolverAmmo;
         }
-        if (currentAmmo < 0)
+        if (weaponStats.currentRevolverAmmo < 0)
         {
-            currentAmmo = 0;
+            weaponStats.currentRevolverAmmo = 0;
         }
 
-        if (currentReserveAmmo > maxReserveAmmo)
+        if (weaponStats.currentRevolverReserveAmmo > weaponStats.maxRevolverReserveAmmo)
         {
-            currentReserveAmmo = maxReserveAmmo;
+            weaponStats.currentRevolverReserveAmmo = weaponStats.maxRevolverReserveAmmo;
         }
-        if (currentReserveAmmo < 0)
+        if (weaponStats.currentRevolverReserveAmmo < 0)
         {
-            currentReserveAmmo = 0;
+            weaponStats.currentRevolverReserveAmmo = 0;
         }
     }
 
     void Shoot()
     {
-        if (currentAmmo > 0)
+        if (weaponStats.currentRevolverAmmo > 0)
         {
             Debug.Log("Bang!");
             if (shootSound != null)
             {
                 audioSource.PlayOneShot(shootSound);
             }
-            currentAmmo--;
+            weaponStats.currentRevolverAmmo--;
             //anim.Play("PistolShoot");
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
@@ -153,7 +153,7 @@ public class Pistol : MonoBehaviour
     {
         //Debug.Log("reloading");
 
-        ammoToAdd = maxAmmo - currentAmmo;
+        ammoToAdd = weaponStats.maxRevolverAmmo - weaponStats.currentRevolverAmmo;
 
         if (reloadSound != null)
         {
@@ -165,24 +165,24 @@ public class Pistol : MonoBehaviour
 
 
 
-        if (currentReserveAmmo >= ammoToAdd)
+        if (weaponStats.currentRevolverReserveAmmo >= ammoToAdd)
         {
-            currentAmmo += ammoToAdd;
-            currentReserveAmmo -= ammoToAdd;
+            weaponStats.currentRevolverAmmo += ammoToAdd;
+            weaponStats.currentRevolverReserveAmmo -= ammoToAdd;
         }
         else
         {
-            currentAmmo += currentReserveAmmo;
-            currentReserveAmmo -= currentReserveAmmo;
+            weaponStats.currentRevolverAmmo += weaponStats.currentRevolverReserveAmmo;
+            weaponStats.currentRevolverReserveAmmo -= weaponStats.currentRevolverReserveAmmo;
         }
         //reloading = false;
 
     }
 
-    public void GainAmmo(int amount)
-    {
-        currentReserveAmmo += amount;
-    }
+    //public void GainAmmo(int amount)
+    //{
+    //    weaponStats.currentRevolverReserveAmmo += amount;
+    //}
 
 
 }
