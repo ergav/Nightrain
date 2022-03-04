@@ -7,6 +7,8 @@ public class HealthPack : MonoBehaviour
     [SerializeField] private float healAmount;
     [SerializeField] private float rotationSpeed;
 
+    private InputManager inputManager;
+
     private HealthSystem hs;
     // Start is called before the first frame update
     void Start()
