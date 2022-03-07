@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float gravityValue = -9.81f;
     private CharacterController controller;
     private CapsuleCollider capsuleCollider;
+    private BoxCollider boxCollider;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
 
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         capsuleCollider = GetComponent<CapsuleCollider>();
+        boxCollider = GetComponent<BoxCollider>();
         inputManager = InputManager.Instance;
         cameraTransform = Camera.main.transform;
 
@@ -140,6 +142,11 @@ public class PlayerController : MonoBehaviour
         if (capsuleCollider != null)
         {
             capsuleCollider.height = controller.height;
+        }
+
+        if (boxCollider != null)
+        {
+            boxCollider.size = new Vector3(boxCollider.size.x, controller.height, boxCollider.size.z);
         }
     }
 

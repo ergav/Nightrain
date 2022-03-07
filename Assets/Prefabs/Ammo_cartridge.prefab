@@ -95,6 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b95b391409a6e54aaca018274b9b307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ammoToAdd: 6
+  weaponStats: {fileID: 0}
+  pickupSound: {fileID: 8300000, guid: 4df7c9cf0c51465499a4ac10787bf5da, type: 3}
 --- !u!65 &8346910184665105009
 BoxCollider:
   m_ObjectHideFlags: 0

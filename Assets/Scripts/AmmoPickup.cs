@@ -6,16 +6,8 @@ public class AmmoPickup : MonoBehaviour
 {
     [SerializeField] int ammoToAdd = 6;
     public WeaponStats weaponStats;
+    [SerializeField] AudioClip pickupSound;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +15,12 @@ public class AmmoPickup : MonoBehaviour
         {
             weaponStats = other.GetComponent<WeaponStats>();
             weaponStats.GainRevolverAmmo(ammoToAdd);
+            AudioSource source = other.GetComponentInChildren<AudioSource>();
+            if (source != null)
+            {
+                source.PlayOneShot(pickupSound);
+            }
+
             Destroy(gameObject);
         }
     }
