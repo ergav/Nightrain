@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 3016332272733925683}
   - component: {fileID: 2470670977886455352}
   - component: {fileID: 97508156915443084}
+  - component: {fileID: 7608825633541149250}
   - component: {fileID: 2008756885}
   - component: {fileID: 2008756884}
   m_Layer: 0
@@ -323,6 +324,23 @@ MonoBehaviour:
   maxRevolverAmmo: 6
   currentRevolverReserveAmmo: 6
   maxRevolverReserveAmmo: 24
+--- !u!114 &7608825633541149250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3016332272733925682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0a7e75c4756c464ca2dadd9eda05970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  metalSounds: []
+  woodSounds: []
+  carpetSounds: []
+  walkSoundRate: 0.75
+  runSoundRate: 0.25
 --- !u!54 &2008756885
 Rigidbody:
   m_ObjectHideFlags: 0
