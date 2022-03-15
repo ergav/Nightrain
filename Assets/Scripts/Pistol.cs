@@ -5,15 +5,14 @@ using UnityEngine.InputSystem;
 
 public class Pistol : MonoBehaviour
 {
-    [SerializeField] int damage = 10;
-    //[SerializeField] int weaponStats.currentRevolverAmmo = 6;
-    //[SerializeField] int weaponStats.currentRevolverReserveAmmo;
-    //[SerializeField] int weaponStats.maxRevolverAmmo = 6;
-    //[SerializeField] int weaponStats.maxRevolverReserveAmmo = 24;
+    [SerializeField]WeaponSettings weaponSettings;
+
+    //int damage = 10;
+
     [Space]
-    [SerializeField] float shootDelaySpeed = 0.2f;
-    [SerializeField] float shootCooldownTime = 0.75f;
-    [SerializeField] float reloadTime = 1;
+    //[SerializeField] float shootDelaySpeed = 0.2f;
+    //[SerializeField] float shootCooldownTime = 0.75f;
+    //[SerializeField] float reloadTime = 1;
     AudioSource audioSource;
     [SerializeField] AudioClip shootSound, reloadSound, equipSound, shootEmptySound;
 
@@ -22,8 +21,8 @@ public class Pistol : MonoBehaviour
 
     Rigidbody rb;
 
-    [SerializeField] float bulletForce = 100;
-    [SerializeField] float maxDistance = 100;
+    //[SerializeField] float bulletForce = 100;
+    //[SerializeField] float maxDistance = 100;
 
     bool reloading;
     bool shootCooldown;
@@ -58,7 +57,7 @@ public class Pistol : MonoBehaviour
             shootCooldown = true;
         }
 
-        if (inputManager.PlayerReloadInput() && weaponStats.currentRevolverAmmo < weaponStats.maxRevolverAmmo && !reloading && weaponStats.currentRevolverReserveAmmo > 0)
+        if (inputManager.PlayerReloadInput() && weaponStats.currentRevolverAmmo < weaponSettings.maxAmmo && !reloading && weaponStats.currentRevolverReserveAmmo > 0)
         {
             Reload();
         }
@@ -67,7 +66,7 @@ public class Pistol : MonoBehaviour
         if (reloading)
         {
             reloadTimer += Time.deltaTime;
-            if (reloadTimer > reloadTime)
+            if (reloadTimer > weaponSettings.reloadTime)
             {
                 reloading = false;
                 reloadTimer = 0;
@@ -88,7 +87,7 @@ public class Pistol : MonoBehaviour
         if (shootCooldown)
         {
             shootTimer += Time.deltaTime;
-            if (shootTimer > shootCooldownTime)
+            if (shootTimer > weaponSettings.shootCooldownTime)
             {
                 shootCooldown = false;
                 shootTimer = 0;
@@ -96,18 +95,18 @@ public class Pistol : MonoBehaviour
         }
 
         //Ammo
-        if (weaponStats.currentRevolverAmmo > weaponStats.maxRevolverAmmo)
+        if (weaponStats.currentRevolverAmmo > weaponSettings.maxAmmo)
         {
-            weaponStats.currentRevolverAmmo = weaponStats.maxRevolverAmmo;
+            weaponStats.currentRevolverAmmo = weaponSettings.maxAmmo;
         }
         if (weaponStats.currentRevolverAmmo < 0)
         {
             weaponStats.currentRevolverAmmo = 0;
         }
 
-        if (weaponStats.currentRevolverReserveAmmo > weaponStats.maxRevolverReserveAmmo)
+        if (weaponStats.currentRevolverReserveAmmo > weaponSettings.maxReserveAmmo)
         {
-            weaponStats.currentRevolverReserveAmmo = weaponStats.maxRevolverReserveAmmo;
+            weaponStats.currentRevolverReserveAmmo = weaponSettings.maxReserveAmmo;
         }
         if (weaponStats.currentRevolverReserveAmmo < 0)
         {
@@ -127,7 +126,7 @@ public class Pistol : MonoBehaviour
             weaponStats.currentRevolverAmmo--;
             //anim.Play("PistolShoot");
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
+            if (Physics.Raycast(transform.position, transform.forward, out hit, weaponSettings.maxDistance))
             {
                 //if (hit.transform.tag == "Enemy")
                 //{
@@ -146,7 +145,7 @@ public class Pistol : MonoBehaviour
                 if (hit.transform.GetComponent<Rigidbody>() != null)
                 {
                     rb = hit.transform.GetComponent<Rigidbody>();
-                    rb.AddForce(transform.forward * bulletForce);
+                    rb.AddForce(transform.forward * weaponSettings.bulletForce);
                 }
             }
         }
@@ -164,7 +163,7 @@ public class Pistol : MonoBehaviour
     {
         //Debug.Log("reloading");
 
-        ammoToAdd = weaponStats.maxRevolverAmmo - weaponStats.currentRevolverAmmo;
+        ammoToAdd = weaponSettings.maxAmmo - weaponStats.currentRevolverAmmo;
 
         if (reloadSound != null)
         {

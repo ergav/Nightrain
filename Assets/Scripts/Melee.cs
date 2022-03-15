@@ -6,10 +6,12 @@ using UnityEngine.InputSystem;
 
 public class Melee : MonoBehaviour
 {
-    [SerializeField] int damage = 10;
-    [SerializeField] float hitForce = 100;
-    [SerializeField] float swingCoolDown = 0.8f;
-    [SerializeField] float hitRange = 1.5f;
+    [SerializeField] MeleeSettings meleeSettings;
+
+    //[SerializeField] int damage = 10;
+    //[SerializeField] float hitForce = 100;
+    //[SerializeField] float swingCoolDown = 0.8f;
+    //[SerializeField] float hitRange = 1.5f;
 
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip swingSound;
@@ -43,7 +45,7 @@ public class Melee : MonoBehaviour
         if (swung)
         {
             timer += Time.deltaTime;
-            if (timer > swingCoolDown)
+            if (timer > meleeSettings.swingCoolDown)
             {
                 swung = false;
                 timer = 0;
@@ -63,21 +65,21 @@ public class Melee : MonoBehaviour
         swung = true;
         //StartCoroutine(CoolDown());
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, hitRange))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, meleeSettings.hitRange))
         {
             //if (hit.transform.tag == "Enemy")
             //{
             //    if (hit.transform.GetComponent<EnemyHealth>() != null)
             //    {
             //        eH = hit.transform.GetComponent<EnemyHealth>();
-            //        eH.TakeDamage(damage);
+            //        eH.TakeDamage(meleeSettings.damage);
             //        audioSource.PlayOneShot(hitSound);
 
             //    }
             //    else
             //    {
             //        eH = hit.transform.GetComponentInParent<EnemyHealth>();
-            //        eH.TakeDamage(damage);
+            //        eH.TakeDamage(meleeSettings.damage);
             //        audioSource.PlayOneShot(hitSound);
             //    }
             //}
@@ -85,7 +87,7 @@ public class Melee : MonoBehaviour
             if (hit.transform.GetComponent<Rigidbody>() != null)
             {
                 rb = hit.transform.GetComponent<Rigidbody>();
-                rb.AddForce(transform.forward * hitForce);
+                rb.AddForce(transform.forward * meleeSettings.hitForce);
                 if (hitSound != null)
                 {
                     audioSource.PlayOneShot(hitSound);
@@ -96,7 +98,7 @@ public class Melee : MonoBehaviour
 
     IEnumerator CoolDown()
     {
-        yield return new WaitForSeconds(swingCoolDown);
+        yield return new WaitForSeconds(meleeSettings.swingCoolDown);
         swung = false;
     }
 }

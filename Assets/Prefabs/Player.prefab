@@ -44,16 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cdd4e51fb92b5845a7316599e56e65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  shootDelaySpeed: 0.2
-  shootCooldownTime: 0.75
-  reloadTime: 2
+  weaponSettings: {fileID: 11400000, guid: 0e22e66a9f6e7c0469d82d414c91e389, type: 2}
   shootSound: {fileID: 8300000, guid: 58b3a3f677133b14f89d4ff9c9641843, type: 3}
   reloadSound: {fileID: 8300000, guid: 577f11e5930f8074f9e867acdb31152e, type: 3}
   equipSound: {fileID: 0}
   shootEmptySound: {fileID: 8300000, guid: a65be5520d93c104780887783eece7d1, type: 3}
-  bulletForce: 100
-  maxDistance: 100
 --- !u!1 &1861441680
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,10 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917033720b3e3834a9fbb81b205b7fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  hitForce: 100
-  swingCoolDown: 0.8
-  hitRange: 1.5
+  meleeSettings: {fileID: 11400000, guid: ccbf504825a65404391fb3f0110bd82f, type: 2}
   audioSource: {fileID: 0}
   swingSound: {fileID: 8300000, guid: 7b76532bf0e1e404eadc9cf011fb5adb, type: 3}
   hitSound: {fileID: 8300000, guid: c189f1329dcee874ba4f2e74b0881df3, type: 3}
@@ -321,9 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentRevolverAmmo: 6
-  maxRevolverAmmo: 6
   currentRevolverReserveAmmo: 6
-  maxRevolverReserveAmmo: 24
 --- !u!114 &7608825633541149250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,6 +331,8 @@ MonoBehaviour:
   carpetSounds: []
   walkSoundRate: 0.75
   runSoundRate: 0.25
+  moving: 0
+  sprinting: 0
 --- !u!54 &2008756885
 Rigidbody:
   m_ObjectHideFlags: 0
