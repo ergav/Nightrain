@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "MeleeSettings", menuName = "Melee Settings")]
+[CreateAssetMenu(fileName = "MeleeSettings", menuName = "Stats/Melee")]
 public class MeleeSettings : ScriptableObject
 {
     public int damage = 10;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "WeaponSettings", menuName = "Weapon Settings")]
+[CreateAssetMenu(fileName = "WeaponSettings", menuName = "Stats/Weapon")]
 public class WeaponSettings : ScriptableObject
 {
     public int maxAmmo = 6;
