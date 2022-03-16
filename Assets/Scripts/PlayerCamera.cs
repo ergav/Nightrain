@@ -9,17 +9,23 @@ public class PlayerCamera : MonoBehaviour
     Vector2 rotation = new Vector2(0, 0);
     public float speed = 100;
     public Transform playerBody;
-    float verticalRotation;
+    public float verticalRotation;
     InputManager inputManager;
     [SerializeField] float clampedAngle = 80;
 
+    Vector2 deltaRotation;
+
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         inputManager = InputManager.Instance;
         if (playerBody == null)
         {
             playerBody = GetComponentInParent<Transform>();
         }
+        verticalRotation = 0;
+
     }
 
     void Update()
