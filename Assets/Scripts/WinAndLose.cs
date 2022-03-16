@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.Animations;
 
 public class WinAndLose : MonoBehaviour
 {
     [SerializeField] private CanvasGroup _HUD_CanvasGroup;
     [SerializeField] private GameObject deathScreen;
 
+    [SerializeField] private Animator animator;
+    
     private HealthSystem hs;
 
-    
+
     private void Awake()
     {
 
@@ -18,22 +22,26 @@ public class WinAndLose : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        animator.SetBool("fadeIn", false);
+    }
+
     public void GameLost()
     {
+        animator.SetBool("fadeIn", true);
         deathScreen.gameObject.SetActive(true);
 
         Debug.Log("You lost!");
-        _HUD_CanvasGroup.alpha = 0;
-        _HUD_CanvasGroup.interactable = false;
-        _HUD_CanvasGroup.blocksRaycasts = false;
+        hideHUD();
 
         Time.timeScale = 0;
     }
 
     public void GameWon()
     {
-        // you have won the game.
-        // credits scene 
+        animator.SetBool("fadeIn", true);
+        //hideHUD();
     }
 
     public void GameRestart()
@@ -50,5 +58,12 @@ public class WinAndLose : MonoBehaviour
     {
         Debug.Log("Don't leave me!!!");
         Application.Quit();
+    }
+
+    public void hideHUD()
+    {
+        _HUD_CanvasGroup.alpha = 0;
+        _HUD_CanvasGroup.interactable = false;
+        _HUD_CanvasGroup.blocksRaycasts = false;
     }
 }
