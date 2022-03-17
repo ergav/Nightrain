@@ -93,4 +93,9 @@ public class InputManager : MonoBehaviour
         return playerControls.Player.ActionSprint.IsPressed();
     }
 
+    public bool ActionFlashlight()
+    {
+        return playerControls.Player.Flashlight.triggered;
+
+    }
 }
