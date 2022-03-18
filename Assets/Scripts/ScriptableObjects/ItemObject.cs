@@ -11,5 +11,6 @@ public abstract class ItemObject : ScriptableObject
 {
     public GameObject prefab;
     public ItemType type;
+    public Vector2 slotsCovered = new Vector2(1,1);
     [TextArea(10, 15)]public string ItemDescription;
 }

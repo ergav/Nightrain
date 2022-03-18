@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class inventorySlot : MonoBehaviour
 {
-    public int inventorySlots = 16;
-
-
+    bool hasItem;
+    Inventory inventory;
     void Start()
     {
         
