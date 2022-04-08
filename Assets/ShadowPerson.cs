@@ -15,12 +15,16 @@ public class ShadowPerson : MonoBehaviour
 
     PlayerController player;
     AudioSource audioSource;
+    ShadowPersonSpawner spawner;
 
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         player = FindObjectOfType<PlayerController>();
+        spawner = FindObjectOfType<ShadowPersonSpawner>();
+
+        minDistanceToDespawn = spawner.minDistanceDespawn;
     }
 
     void Update()
@@ -31,11 +35,20 @@ public class ShadowPerson : MonoBehaviour
         }
         
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-
+        
         if (distanceToPlayer <= minDistanceToDespawn)
         {
             Destroy(gameObject);
+        }else
+        {
+            Destroy(gameObject, 20f);
         }
 
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, minDistanceToDespawn);
     }
 }
