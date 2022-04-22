@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    [SerializeField] private KeyPickUp key;
+    [SerializeField] private GameObject tmpOpenDoor;
+
     InputManager inputManager;
     PlayerController player;
     Animator ator;
 
+    [HideInInspector]
+    public bool playerHasKey = false;
     private bool doorIsClosed = true;
     private bool doorCanBeOpen = false;
     private void Start()
@@ -15,18 +20,22 @@ public class Door : MonoBehaviour
         inputManager = InputManager.Instance;
         player = FindObjectOfType<PlayerController>();
         ator = GetComponent<Animator>();
+
+        tmpOpenDoor.SetActive(false);
+        playerHasKey = false;
     }
 
     private void Update()
     {
         DoorInteraction();
+        Debug.Log(playerHasKey);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Door is ready to be open");
+            tmpOpenDoor.SetActive(true);
             doorCanBeOpen = true;
             doorIsClosed = true;
         }
@@ -37,7 +46,7 @@ public class Door : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("player left the are to open door");
+            tmpOpenDoor.SetActive(false);
             doorIsClosed = false;
             doorCanBeOpen = false;
         }
@@ -45,14 +54,14 @@ public class Door : MonoBehaviour
 
     private void DoorInteraction()
     {
-        if (doorIsClosed && doorCanBeOpen && inputManager.ActionInteract())
+        if (doorIsClosed && doorCanBeOpen && inputManager.ActionInteract() && playerHasKey)
         {
             doorIsClosed = false;
             ator.SetBool("OpenDoor", true);
             ator.SetBool("CloseDoor", false);
 
         }
-        else if (!doorIsClosed && doorCanBeOpen && inputManager.ActionInteract())
+        else if (!doorIsClosed && doorCanBeOpen && inputManager.ActionInteract() && playerHasKey)
         {
             doorIsClosed = true;
             ator.SetBool("OpenDoor", false);
