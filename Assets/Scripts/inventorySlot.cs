@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class inventorySlot : MonoBehaviour
 {
-    bool hasItem;
+    [HideInInspector]public bool hasItem;
     Inventory inventory;
     void Start()
     {
