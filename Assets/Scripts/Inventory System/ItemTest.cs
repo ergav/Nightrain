@@ -20,10 +20,10 @@ public class ItemTest : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
-        {
-            displayInventory.AddItem(inventoryObject);
-            Destroy(gameObject);
-        }
+        //if (other.tag == "Player")
+        //{
+        //    displayInventory.AddItem(inventoryObject);
+        //    Destroy(gameObject);
+        //}
     }
 }
