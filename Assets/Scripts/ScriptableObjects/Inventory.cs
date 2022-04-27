@@ -17,7 +17,7 @@ public class Inventory : ScriptableObject
             if (container[i].item == _item)
             {
                 container[i].AddAmount(_amount);
-                hasItem = true;
+                //hasItem = true;
                 break;
             }
         }
