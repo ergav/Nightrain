@@ -15,4 +15,5 @@ MonoBehaviour:
   prefab: {fileID: 1772819794196823284, guid: eee650bf9c1301d4193885e8fa025781, type: 3}
   type: 3
   slotsCovered: {x: 1, y: 1}
+  stackLimit: 6
   ItemDescription: 

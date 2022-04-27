@@ -10,11 +10,14 @@ public class PlayerInventory : MonoBehaviour
 
     InputManager inputManager;
 
+    PlayerCamera playerCamera;
+
     bool inventoryIsOpen;
 
     private void Start()
     {
         inputManager = InputManager.Instance;
+        playerCamera = GetComponentInChildren<PlayerCamera>();
 
         if (inventoryUI == null)
         {
@@ -32,10 +35,16 @@ public class PlayerInventory : MonoBehaviour
         if (inventoryIsOpen)
         {
             inventoryUI.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            playerCamera.enabled = false;
         }
         else
         {
             inventoryUI.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            playerCamera.enabled = true;
         }
     }
 
