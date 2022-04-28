@@ -143,6 +143,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleInventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""f12831bf-06a1-4036-a7b8-3186be1940e9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -442,6 +451,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Weapon Slots"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""383c5254-922b-4774-9ee0-db0d83557189"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -463,6 +483,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_WeaponSlot1 = m_Player.FindAction("Weapon Slot 1", throwIfNotFound: true);
         m_Player_WeaponSlot2 = m_Player.FindAction("Weapon Slot 2", throwIfNotFound: true);
         m_Player_WeaponSlots = m_Player.FindAction("Weapon Slots", throwIfNotFound: true);
+        m_Player_ToggleInventory = m_Player.FindAction("ToggleInventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -535,6 +556,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_WeaponSlot1;
     private readonly InputAction m_Player_WeaponSlot2;
     private readonly InputAction m_Player_WeaponSlots;
+    private readonly InputAction m_Player_ToggleInventory;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -552,6 +574,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @WeaponSlot1 => m_Wrapper.m_Player_WeaponSlot1;
         public InputAction @WeaponSlot2 => m_Wrapper.m_Player_WeaponSlot2;
         public InputAction @WeaponSlots => m_Wrapper.m_Player_WeaponSlots;
+        public InputAction @ToggleInventory => m_Wrapper.m_Player_ToggleInventory;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -600,6 +623,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @WeaponSlots.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponSlots;
                 @WeaponSlots.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponSlots;
                 @WeaponSlots.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponSlots;
+                @ToggleInventory.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleInventory;
+                @ToggleInventory.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleInventory;
+                @ToggleInventory.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleInventory;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -643,6 +669,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @WeaponSlots.started += instance.OnWeaponSlots;
                 @WeaponSlots.performed += instance.OnWeaponSlots;
                 @WeaponSlots.canceled += instance.OnWeaponSlots;
+                @ToggleInventory.started += instance.OnToggleInventory;
+                @ToggleInventory.performed += instance.OnToggleInventory;
+                @ToggleInventory.canceled += instance.OnToggleInventory;
             }
         }
     }
@@ -662,5 +691,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnWeaponSlot1(InputAction.CallbackContext context);
         void OnWeaponSlot2(InputAction.CallbackContext context);
         void OnWeaponSlots(InputAction.CallbackContext context);
+        void OnToggleInventory(InputAction.CallbackContext context);
     }
 }

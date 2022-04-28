@@ -14,7 +14,7 @@ public class Inventory : ScriptableObject
 
         for (int i = 0; i < container.Count; i++)
         {
-            if (container[i].item == _item)
+            if (container[i].item == _item && container[i].amount < container[i].item.stackLimit)
             {
                 container[i].AddAmount(_amount);
                 hasItem = true;

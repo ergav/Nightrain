@@ -98,4 +98,10 @@ public class InputManager : MonoBehaviour
         return playerControls.Player.Flashlight.triggered;
 
     }
+
+    public bool ToggleInventory()
+    {
+        return playerControls.Player.ToggleInventory.triggered;
+
+    }
 }
