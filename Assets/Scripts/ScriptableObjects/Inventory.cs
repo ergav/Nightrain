@@ -3,14 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEditor;
 
 [CreateAssetMenu(fileName = "Inventory", menuName = "Inventory/Inventory")]
 
 public class Inventory : ScriptableObject, ISerializationCallbackReceiver
 {
     public string savePath;
-    public ItemDatabaseObject itemDatabase;
+    private ItemDatabaseObject database;
     public List<InventorySlot> container = new List<InventorySlot>();
+
+    private void OnEnable()
+    {
+#if UNITY_EDITOR
+        database = (ItemDatabaseObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Database.asset", typeof(ItemDatabaseObject));
+#else
+        database = Resources.Load<ItemDatabaseObject>("Database");
+#endif
+    }
 
     public void AddItem(ItemObject _item, int _amount)
     {
@@ -23,7 +33,7 @@ public class Inventory : ScriptableObject, ISerializationCallbackReceiver
                 return;
             }
         }
-        container.Add(new InventorySlot(itemDatabase.getID[_item], _item, _amount));
+        container.Add(new InventorySlot(database.getID[_item], _item, _amount));
 
     }
 
@@ -50,7 +60,7 @@ public class Inventory : ScriptableObject, ISerializationCallbackReceiver
     {
         for (int i = 0; i < container.Count; i++)
         {
-            container[i].item = itemDatabase.getItem[container[i].ID];
+            container[i].item = database.getItem[container[i].ID];
         }
     }
 

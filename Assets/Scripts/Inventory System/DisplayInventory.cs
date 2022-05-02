@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DisplayInventory : MonoBehaviour
 {
@@ -31,8 +32,9 @@ public class DisplayInventory : MonoBehaviour
         for (int i = 0; i < inventory.container.Count; i++)
         {
             var obj = Instantiate(inventory.container[i].item.prefab, Vector3.zero, Quaternion.identity, transform);
+            obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.container[i].amount.ToString("n0");
             //obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
-            
+
         }
     }
 
@@ -42,11 +44,12 @@ public class DisplayInventory : MonoBehaviour
         {
             if (itemdisplayed.ContainsKey(inventory.container[i]))
             {
-
+                itemdisplayed[inventory.container[i]].GetComponentInChildren<TextMeshProUGUI>().text = inventory.container[i].amount.ToString("n0");
             }
             else
             {
                 var obj = Instantiate(inventory.container[i].item.prefab, Vector3.zero, Quaternion.identity, transform);
+                obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.container[i].amount.ToString("n0");
                 itemdisplayed.Add(inventory.container[i], obj);
             }
         }
