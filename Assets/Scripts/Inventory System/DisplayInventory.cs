@@ -35,7 +35,8 @@ public class DisplayInventory : MonoBehaviour
             InventorySlot slot = inventory.container.items[i];
 
             var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
-            obj.transform.GetChild(0).GetComponentInChildren<Image>().sprite = inventory.database.getItem[slot.item.Id].uiDisplay;
+            obj.transform.GetComponentInChildren<Image>().sprite = inventory.database.getItem[slot.item.Id].uiDisplay;
+            //obj.transform.GetChild(0).GetComponentInChildren<Image>().sprite = inventory.database.getItem[slot.item.Id].uiDisplay;
             obj.GetComponentInChildren<TextMeshProUGUI>().text = slot.amount.ToString("n0");
             itemdisplayed.Add(slot, obj);
             //obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
@@ -56,7 +57,7 @@ public class DisplayInventory : MonoBehaviour
             else
             {
                 var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
-                obj.transform.GetChild(0).GetComponentInChildren<Image>().sprite = inventory.database.getItem[slot.item.Id].uiDisplay;
+                obj.transform.GetComponentInChildren<Image>().sprite = inventory.database.getItem[slot.item.Id].uiDisplay;
                 obj.GetComponentInChildren<TextMeshProUGUI>().text = slot.amount.ToString("n0");
                 itemdisplayed.Add(slot, obj);
             }

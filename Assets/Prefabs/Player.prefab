@@ -536,7 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b09923d9dbb55b749b088f4cac2aac5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  mouseSensitivity: 50
   playerBody: {fileID: 3016332272733925685}
   verticalRotation: 0
   clampedAngle: 80
