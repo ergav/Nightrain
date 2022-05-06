@@ -120,10 +120,13 @@ Material:
     - Boolean_2b1b28ec593a44ed9c6e497c59bbbad9: 0
     - Boolean_d0af4a43c369490b8d8001749ccf3249: 0
     - Boolean_d0af4a43c369490b8d8001749ccf3249_1: 1
+    - Boolean_e0c0318c56fa44dc81f37a0551cf536c: 0
     - Vector1_1b6c26f414dd480a9fe5f60c024f489b: 1
     - Vector1_4cd64156eb694eb5864501a043f13a10: 0
-    - Vector1_7a446e2e726341cb9c5a16885d8de4b2: 1
+    - Vector1_7a446e2e726341cb9c5a16885d8de4b2: 0.6
     - Vector1_d2d5c9af4ab4485cb9f38f9e07f0baf3: 1
+    - Vector1_f7758c870201436897029fdceb46d910: 0.89
+    - Vector1_f7758c870201436897029fdceb46d910_1: 1
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -154,6 +157,8 @@ Material:
     m_Colors:
     - Color_8510a1778d4f46448f6e61c64134abb0: {r: 1, g: 1, b: 1, a: 0}
     - Color_e2bbc3ae236a4597ae787c9575652f83: {r: 1, g: 1, b: 1, a: 0}
+    - Vector2_3d84c3aa7df544e6b7881864c39cad21: {r: 0, g: 0, b: 0, a: 0}
+    - Vector2_b471be878809498eb40e6db880c68e1d: {r: 1, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
