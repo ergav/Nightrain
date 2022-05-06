@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerCamera : MonoBehaviour
 {
     Vector2 rotation = new Vector2(0, 0);
-    public float speed = 100;
+    [Range( 1, 100)]public float mouseSensitivity = 100;
     public Transform playerBody;
     public float verticalRotation;
     InputManager inputManager;
@@ -33,11 +33,11 @@ public class PlayerCamera : MonoBehaviour
         Vector2 deltaRotation = inputManager.GetMouseDelta();
 
 
-        verticalRotation += -deltaRotation.y * speed * Time.deltaTime;
+        verticalRotation += -deltaRotation.y * mouseSensitivity * Time.deltaTime;
         verticalRotation = Mathf.Clamp(verticalRotation, -clampedAngle, clampedAngle);
 
         rotation.x = verticalRotation;
         transform.localEulerAngles = (Vector2)rotation;
-        playerBody.Rotate(new Vector3(0, deltaRotation.x * speed * Time.deltaTime, 0));
+        playerBody.Rotate(new Vector3(0, deltaRotation.x * mouseSensitivity * Time.deltaTime, 0));
     }
 }

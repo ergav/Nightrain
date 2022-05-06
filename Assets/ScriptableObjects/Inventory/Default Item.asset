@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 0
   uiDisplay: {fileID: 21300000, guid: ca4b42b0ad329fd4fad829aa49a57754, type: 3}
+  stackLimit: 6
   type: 3
   slotsCovered: {x: 1, y: 1}
   ItemDescription: 
