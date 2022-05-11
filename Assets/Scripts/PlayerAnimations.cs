@@ -6,6 +6,8 @@ public class PlayerAnimations : MonoBehaviour
 {
     public Animator animator;
 
+    public bool walking, sprinting;
+
     void Start()
     {
         
@@ -13,6 +15,14 @@ public class PlayerAnimations : MonoBehaviour
 
     void Update()
     {
-        
+        animator.SetBool("Walking", walking);
+        animator.SetBool("Sprinting", sprinting);
+
+    }
+
+    void Fire()
+    {
+        animator.SetTrigger("Fire");
+
     }
 }

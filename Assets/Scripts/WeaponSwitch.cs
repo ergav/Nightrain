@@ -16,9 +16,12 @@ public class WeaponSwitch : MonoBehaviour
 
     InputManager inputManager;
 
+    PlayerAnimations playerAnimations;
+
     void Start()
     {
         inputManager = InputManager.Instance;
+        playerAnimations = GetComponent<PlayerAnimations>();
         SwitchWeapon();
     }
 
