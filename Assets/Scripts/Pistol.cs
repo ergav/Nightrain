@@ -29,6 +29,7 @@ public class Pistol : MonoBehaviour
 
     int ammoToAdd;
 
+    PlayerAnimations playeranimations;
 
     void Start()
     {
@@ -43,6 +44,7 @@ public class Pistol : MonoBehaviour
         }
 
         weaponStats = GetComponentInParent<WeaponStats>();
+        playeranimations = GetComponentInParent<PlayerAnimations>();
     }
 
     float reloadTimer;
@@ -124,6 +126,7 @@ public class Pistol : MonoBehaviour
                 audioSource.PlayOneShot(shootSound);
             }
             weaponStats.currentRevolverAmmo--;
+            playeranimations.Fire();
             //anim.Play("PistolShoot");
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit, weaponSettings.maxDistance))

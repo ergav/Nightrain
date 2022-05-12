@@ -113,6 +113,7 @@ public class WeaponSwitch : MonoBehaviour
             if (i == currentWeapon)
             {
                 weapons[i-1].SetActive(true);
+                playerAnimations.animator = weapons[i - 1].GetComponent<Animator>();
             }
             else
             {

@@ -22,6 +22,8 @@ public class Melee : MonoBehaviour
 
     Rigidbody rb;
 
+    PlayerAnimations playeranimations;
+
     void Start()
     {
         inputManager = InputManager.Instance;
@@ -33,6 +35,7 @@ public class Melee : MonoBehaviour
                 audioSource = GetComponentInParent<AudioSource>();
             }
         }
+        playeranimations = GetComponentInParent<PlayerAnimations>();
     }
     float timer;
     void Update()
@@ -56,7 +59,7 @@ public class Melee : MonoBehaviour
     void Swing()
     {
         Debug.Log("Swoosh!");
-
+        playeranimations.Fire();
         //anim.Play("MeleeSwing");
         if (swingSound != null)
         {

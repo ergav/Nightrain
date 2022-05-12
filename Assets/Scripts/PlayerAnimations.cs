@@ -20,9 +20,15 @@ public class PlayerAnimations : MonoBehaviour
 
     }
 
-    void Fire()
+    public void Fire()
     {
         animator.SetTrigger("Fire");
+
+    }
+
+    public void Reload()
+    {
+        animator.SetTrigger("Reload");
 
     }
 }

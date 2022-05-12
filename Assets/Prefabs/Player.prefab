@@ -316,6 +316,7 @@ GameObject:
   - component: {fileID: 7608825633541149250}
   - component: {fileID: 4627547749650222632}
   - component: {fileID: 2111229824410300666}
+  - component: {fileID: 938354829924760482}
   - component: {fileID: 2008756885}
   - component: {fileID: 2008756884}
   - component: {fileID: 754025429}
@@ -463,6 +464,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 678a27ffb2b0a1e46912bd19c2abe636, type: 2}
   inventoryUI: {fileID: 0}
+--- !u!114 &938354829924760482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3016332272733925682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebdc7bd6842a4bc4796feef82e4c1ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  walking: 0
+  sprinting: 0
 --- !u!54 &2008756885
 Rigidbody:
   m_ObjectHideFlags: 0
